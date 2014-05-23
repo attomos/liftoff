@@ -1,12 +1,13 @@
 module Liftoff
   class CocoapodsSetup
     def install_cocoapods(use_cocoapods)
-      return unless use_cocoapods
-      if pod_installed?
-        move_podfile
-        run_pod_install
-      else
-        puts 'Please install CocoaPods or disable pods from liftoff'
+      if use_cocoapods
+        if pod_installed?
+          move_podfile
+          run_pod_install
+        else
+          puts 'Please install CocoaPods or disable pods from liftoff'
+        end
       end
     end
 
